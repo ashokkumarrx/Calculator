@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+    }
+    .calculator {
+      width: 400px;
+      margin: 0 auto;
+      padding: 30px;
+      border: 1px solid #ccc;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    .operation-btn {
+      width: 20%;
+      padding: 10px;
+      margin: 5px;
+      font-size: 18px;
+    }
+    .equals-btn {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 18px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+  <link rel="stylesheet" href="calu.css">
+</head>
+<body>
+  <div class="calculator">
+    <input type="text" id="display" readonly>
+    <button class="operation-btn" onclick="appendToDisplay('1')">1</button>
+    <button class="operation-btn" onclick="appendToDisplay('2')">2</button>
+    <button class="operation-btn" onclick="appendToDisplay('3')">3</button>
+    <button class="operation-btn" onclick="appendToDisplay('+')">+</button>
+    <br>
+    <button class="operation-btn" onclick="appendToDisplay('4')">4</button>
+    <button class="operation-btn" onclick="appendToDisplay('5')">5</button>
+    <button class="operation-btn" onclick="appendToDisplay('6')">6</button>
+    <button class="operation-btn" onclick="appendToDisplay('-')">-</button>
+    <br>
+    <button class="operation-btn" onclick="appendToDisplay('7')">7</button>
+    <button class="operation-btn" onclick="appendToDisplay('8')">8</button>
+    <button class="operation-btn" onclick="appendToDisplay('9')">9</button>
+    <button class="operation-btn" onclick="appendToDisplay('*')">*</button>
+    <br>
+    <button class="operation-btn" onclick="appendToDisplay('0')">0</button>
+    <button class="operation-btn" onclick="appendToDisplay('.')">.</button>
+    <button class="operation-btn" onclick="clearDisplay()">C</button>
+    <button class="operation-btn" onclick="appendToDisplay('/')">/</button>
+    <br>
+    <button class="equals-btn" onclick="calculate()">=</button>
+  </div>
+
+  <script>
+    function appendToDisplay(value) {
+      document.getElementById("display").value += value;
+    }
+
+    function clearDisplay() {
+      document.getElementById("display").value = '';
+    }
+
+    function calculate() {
+      const expression = document.getElementById("display").value;
+      try {
+        const result = eval(expression);
+        document.getElementById("display").value = result;
+      } catch (error) {
+        document.getElementById("display").value = 'Error';
+      }
+    }
+  </script>
+</body>
+</html>
