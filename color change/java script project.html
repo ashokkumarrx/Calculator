@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ashok's color change web</title>
+</head>
+<body>
+  <p "colored-text" id="color-changing-text">Ashok's bike is RX100</p>
+  <button id="change-color-button">Change Color</button>
+  <link rel="stylesheet" href="js style.css">
+  <script>
+    document.getElementById("change-color-button").addEventListener("click", function() {
+      var textElement = document.getElementById("color-changing-text");
+      var currentColor = textElement.style.color;
+      var colors = ["red", "green", "blue", "purple", "orange", "pink"];
+      var randomColor = colors[Math.floor(Math.random() * colors.length)];
+      while (randomColor === currentColor) {
+        randomColor = colors[Math.floor(Math.random() * colors.length)];
+      }
+
+      textElement.style.color = randomColor;
+    });
+  </script>
+</body>
+</html>
